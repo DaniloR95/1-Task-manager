@@ -34,7 +34,7 @@
                                 <div class="estado">
                                     <i class="fas fa-check-square"></i>
                                 </div>
-                                <div class="editar">
+                                <div class="editar" onclick="editar('modificar<?=$fila->idTarea?>');">
                                     <i class="fas fa-edit"></i>
                                 </div>
                                 <div class="eliminar" onclick="eliminar('<?=$fila->idTarea?>');">
@@ -45,6 +45,20 @@
                                 <?=$fila->descripcionTarea?>
                             </div>
                         </div>
+
+                        <form action="">
+                            <div class="modificarTarea" id="modificar<?=$fila->idTarea?>">
+                                <div class="titulo">
+                                    <h1><?=$fila->tituloTarea?></h1>
+                                </div>
+                                <input type="text" placeholder="Titulo" name="newTitulo" class="rellenarNewTarea" value="<?=$fila->tituloTarea?>">
+                                <textarea name="newDescripcion" class="rellenarNewTarea2" placeholder="Descripción"><?=$fila->descripcionTarea?></textarea>
+                                <div class="botones">
+                                    <input type="button" value="Modificar" class="botonCrear" onclick="modificarTarea(<?=$fila->idTarea?>, this.form.newTitulo.value, this.form.newDescripcion.value);">
+                                    <input type="button" value="Cancelar" class="botonCancelar">    
+                                </div>
+                            </div>
+                        </form>
                     <?php
                 }        
             ?>
@@ -118,6 +132,27 @@
                 }
             });
 
+        }
+        function editar(id){
+            mostrar = document.getElementById(id);
+            mostrar.style.display="grid"
+        }
+        function modificarTarea(id, titulo, descripcion){
+            var parametros = 
+            {
+                "id" : id,
+                "titulo" : titulo,
+                "descripcion" : descripcion
+            };
+            $.ajax({
+                data: parametros,
+                url: 'modificar_tarea.php',
+                type: 'POST',
+                success: function(tarea)
+                {
+                    location.reload();
+                }
+            });
         }
     </script>
 

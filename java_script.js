@@ -135,6 +135,4 @@ function validarRegistro(){
     else{
         document.getElementById("formulario").submit();
     }
-
-
 }

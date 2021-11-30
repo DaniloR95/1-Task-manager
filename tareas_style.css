@@ -73,9 +73,9 @@
     gap: 20px;
     margin-bottom: 50px;
 }
-#modificarTarea{
+.modificarTarea{
     width: 500px;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     padding: 20px;
     background-color: white;
