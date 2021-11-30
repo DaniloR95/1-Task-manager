@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="tareas_style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="tarea">
+            <div class="nombre">
+                *Nombre
+            </div>
+            <div class="opciones">
+                <div class="mostrar" onclick="mostrar();">
+                    <i class="fas fa-chevron-down" id="flecha"></i>
+                </div>
+                <div class="estado">
+                    <i class="fas fa-check-square"></i>
+                </div>
+                <div class="editar">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="eliminar">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </div>
+            <div id="descripcion">
+                *descripcion (retractil)
+            </div>
+        </div>
+
+        <div id="nuevaTarea">
+            <div class="titulo">
+                <h1>Nueva tarea</h1>
+            </div>
+            <input type="text" placeholder="Titulo" class="rellenarNewTarea">
+            <textarea name=""  class="rellenarNewTarea2" placeholder="Descripción"></textarea>
+            <div class="botones">
+                <input type="button" value="Crear" class="botonCrear">
+                <input type="button" value="Cancelar" class="botonCancelar">    
+            </div>
+        </div>
+
+        <div id="modificarTarea">
+            <div class="titulo">
+                <h1>*titulo original</h1>
+            </div>
+            <input type="text" placeholder="Titulo" class="rellenarNewTarea">
+            <textarea name=""  class="rellenarNewTarea2" placeholder="Descripción"></textarea>
+            <div class="botones">
+                <input type="button" value="Modificar" class="botonCrear">
+                <input type="button" value="Cancelar" class="botonCancelar">    
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function mostrar(){
+            descripcion = document.getElementById("descripcion");
+            flecha = document.getElementById("flecha");
+            descripcion.style.display="block";
+            flecha.style.transform="rotate(180deg)";
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+:root{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid grey;
+    outline: none;
+}
+input:focus{
+    border: 2px solid green;
+    outline: none;
+}
+#contenedor{
+    width: 100%;
+    height: 100vh;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: silver;
+}
+#registro{
+    width: 400px;
+    display: none;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 5px;
+    gap: 10px;
+}
+h1{
+    margin-bottom: 20px;
+}
+.rellenarRegistro{
+    margin-bottom: 3px;
+    height: 30px;
+    border-radius: 3px;
+    padding-left: 10px;
+
+}
+#botonRegistro{
+    width: 100px;
+    margin: auto;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: steelblue;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+#botonRegistroCancelar{
+    width: 100px;
+    margin: auto;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+#botonRegistro:hover{
+    background-color: rgb(34, 114, 180);
+
+}
+#botonRegistroCancelar:hover{
+    background-color: rgb(75, 75, 75);
+
+}
+
+#login{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.rellenarLogin{
+    margin-bottom: 15px;
+    height: 30px;
+    border-radius: 3px;
+    padding-left: 10px;
+
+}
+#botonLogin{
+    width: 100px;
+    margin: auto;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: steelblue;
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+}
+#botonLogin:hover{
+    background-color: rgb(34, 114, 180);
+
+}
+#registro2{
+    cursor: pointer;
+}
+#registro2:hover{
+    color: cornflowerblue;
+}
+#olvidoPassword{
+    cursor: pointer;
+}
+#olvidoPassword:hover{
+    color: cornflowerblue;
+}
+#restablecerPassword{
+    width: 450px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+
+}
+#emailRecuperar{
+    margin-bottom: 15px;
+    height: 30px;
+    border-radius: 3px;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+.botonRestablecer{
+    width: 170px;
+    margin: auto;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: steelblue;
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+}
+.botonRestablecer:hover{
+    background-color: rgb(34, 114, 180);
+
+}
+#restablecerPassword2{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+#restablecerPassword2 p{
+    margin-bottom: 20px;
+}
+#restablecerPassword3{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+#restablecerPassword4 p{
+    margin-bottom: 20px;
+}
+#restablecerPassword4{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+#usuarioCreado{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+#usuarioNoCreado{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+#usuarioCreado p{
+    margin-bottom: 20px;
+}
+#usuarioNoCreado p{
+    margin-bottom: 20px;
+}
+.spanError{
+    text-align: left;
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+

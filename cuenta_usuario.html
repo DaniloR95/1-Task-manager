@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pruebas_style.css">
+</head>
+<body>
+    <div id="contenedor">
+        <div id="registro">
+            <h1>Registro</h1>
+            <input type="text" placeholder="Nombre" class="rellenarRegistro">
+            <input type="text" placeholder="Apellidos" class="rellenarRegistro">
+            <input type="email" placeholder="Email" class="rellenarRegistro">
+            <input type="password" placeholder="Contraseña" class="rellenarRegistro">
+            <input type="password" placeholder="Repetir contraseña" class="rellenarRegistro">
+            <input type="button" value="Registrarse" id="botonRegistro">
+        </div>
+
+        <div id="login">
+            <h1>Iniciar sesión</h1>
+            <input type="email" placeholder="Email" class="rellenarLogin">
+            <input type="password" placeholder="Contraseña" class="rellenarLogin">
+            <input type="button" value="Iniciar sesión" id="botonLogin">
+            <p id="crearCuenta">¿No tienes una cuenta? <span id="registro2">Registrarse</span></p>
+            <p id="olvidoPassword">¿Olvidaste la contraseña?</p>
+        </div>
+        <div id="restablecerPassword">
+            <h1>¿Olvidaste la contraseña?</h1>
+            <p>Escribe el correo electrónico con el que te registraste y haz clic en "Restablecer contraseña".</p>
+            <input type="email" id="emailRecuperar" placeholder="Email">
+            <input type="button" value="Restablecer contraseña" class="botonRestablecer">
+        </div>
+        <div id="restablecerPassword2">
+            <p>Se ha enviado un correo electronico a XXX para que recupere su contraseña</p>
+            <input type="button" value="Volver al inicio" class="botonRestablecer">
+        </div>
+
+        <div id="restablecerPassword3">
+            <h1>Restablecer Contraseña</h1>
+            <input type="password" placeholder="Nueva contraseña" class="rellenarRegistro">
+            <input type="password" placeholder="Repetir contraseña" class="rellenarRegistro">
+            <input type="button" value="Modificar" class="botonRestablecer">
+        </div>
+
+        <div id="restablecerPassword4">
+            <p>Su contraseña ha sido modificada con exito</p>
+            <input type="button" value="Iniciar sesión" class="botonRestablecer">
+        </div>
+
+    </div>
+</body>
+</html>

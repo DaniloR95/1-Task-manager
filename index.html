@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pruebas_style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor">
+        <form action="resultado.php" method="post">
+            <div id="login">
+                <h1>Iniciar sesión</h1>
+                <input type="email" name="email" placeholder="Email" class="rellenarLogin">
+                <input type="password" name="password" placeholder="Contraseña" class="rellenarLogin">
+                <input type="button" value="Iniciar sesión" id="botonLogin" onclick="this.form.submit();">
+                <p id="crearCuenta">¿No tienes una cuenta? <span onclick="registrarse();" id="registro2">Registrarse</span></p>
+                <p id="olvidoPassword">¿Olvidaste la contraseña?</p>
+            </div>
+        </form>
+        <form action="crearUsuario.php" method="post" id="formulario">
+            <div id="registro">
+                <h1>Registro</h1>
+                <input type="text" placeholder="Nombre" id="nombre" name="nombre" class="rellenarRegistro" onkeyup="comprobarNombre(this.value)">
+                <span id="spanNombre" class="spanError">* El nombre solo puede contener letras y un minimo de 3 caracteres</span>
+                <input type="text" placeholder="Apellidos" name="apellidos" class="rellenarRegistro" id="apellidos" onkeyup="comprobarApellidos(this.value)">
+                <span id="spanApellidos" class="spanError">* Los apellidos solo pueden contener letras y un minimo de 3 caracteres</span>
+                <input type="email" placeholder="Email" name="email" class="rellenarRegistro" id="email" onkeyup="comprobarEmail(this.value)">
+                <span id="spanEmail" class="spanError">* El email introducido no es valido</span>
+                <input type="password" placeholder="Contraseña" name="password" class="rellenarRegistro" id="password" onkeyup="comprobarPassword(this.value)">
+                <span id="spanPassword" class="spanError">* La contraseña debe contener letras mayusculas, minuscula, numeros y 8 caracteres como minimo</span>
+                <input type="password" placeholder="Repetir contraseña" id="password2" name="password2" class="rellenarRegistro" onkeyup="comprobarPassword2(this.value)">
+                <span id="spanPassword2" class="spanError">* La contraseña no coincide con la anterior</span>
+
+                <div>
+                    <input type="button" value="Registrarse" id="botonRegistro" onclick="validarRegistro();">
+                    <input type="button" value="Cancelar" id="botonRegistroCancelar" onclick="cancelarRegistro();">
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <script src="java_script.js">
+    </script>
+</body>
+</html>
