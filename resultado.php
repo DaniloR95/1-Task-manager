@@ -31,8 +31,8 @@
                                 <div class="mostrar" onclick="mostrar('<?=$fila->idTarea?>');">
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
-                                <div class="estado">
-                                    <i class="fas fa-check-square"></i>
+                                <div class="estado" onclick="estado(<?=$fila->idTarea?>, <?=$fila->estadoTarea?>)">
+                                    <i class="fas fa-check-square estado<?=$fila->estadoTarea?>"></i>
                                 </div>
                                 <div class="editar" onclick="editar('modificar<?=$fila->idTarea?>');">
                                     <i class="fas fa-edit"></i>
@@ -55,7 +55,7 @@
                                 <textarea name="newDescripcion" class="rellenarNewTarea2" placeholder="Descripción"><?=$fila->descripcionTarea?></textarea>
                                 <div class="botones">
                                     <input type="button" value="Modificar" class="botonCrear" onclick="modificarTarea(<?=$fila->idTarea?>, this.form.newTitulo.value, this.form.newDescripcion.value);">
-                                    <input type="button" value="Cancelar" class="botonCancelar">    
+                                    <input type="button" value="Cancelar" class="botonCancelar" onclick="cancelarModificar('modificar<?=$fila->idTarea?>');">    
                                 </div>
                             </div>
                         </form>
@@ -98,6 +98,22 @@
             $.ajax({
                 data: parametros,
                 url: 'eliminar_tarea.php',
+                type: 'POST',
+                success: function(tarea)
+                {
+                    location.reload();
+                }
+            });
+        }
+        function estado(id, estado){
+            var parametros = 
+            {
+                "id" : id,
+                "estado" : estado
+            };
+            $.ajax({
+                data: parametros,
+                url: 'estado_tarea.php',
                 type: 'POST',
                 success: function(tarea)
                 {
@@ -153,6 +169,11 @@
                     location.reload();
                 }
             });
+        }
+        function cancelarModificar(id){
+            mostrar = document.getElementById(id);
+            mostrar.style.display="none"
+            location.reload();
         }
     </script>
 

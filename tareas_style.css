@@ -144,6 +144,12 @@
 .ocultar{
     display: none;
 }
+.estado0{
+    color: black;
+}
+.estado1{
+    color: greenyellow;
+}
 
 
 
