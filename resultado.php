@@ -14,52 +14,64 @@
 
         <main id="main">
             <?php
-                $conexion = new mysqli("127.0.0.1", "root", "", "proyecto");
-                $conexion->set_charset("utf8");
-                $sql = "select * from tareas where emailUsuario=?";
-                $instruccion = $conexion->prepare($sql);
-                $instruccion->bind_param("s", $_POST["email"]);
-                $instruccion->execute();
-                $tabla = $instruccion->get_result();
-                while ($fila = $tabla->fetch_object()) {
-                    ?>
-                        <div class="tarea">
-                            <div class="nombre">
-                                <?=$fila->tituloTarea?>
-                            </div>
-                            <div class="opciones">
-                                <div class="mostrar" onclick="mostrar('<?=$fila->idTarea?>');">
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                                <div class="estado" onclick="estado(<?=$fila->idTarea?>, <?=$fila->estadoTarea?>)">
-                                    <i class="fas fa-check-square estado<?=$fila->estadoTarea?>"></i>
-                                </div>
-                                <div class="editar" onclick="editar('modificar<?=$fila->idTarea?>');">
-                                    <i class="fas fa-edit"></i>
-                                </div>
-                                <div class="eliminar" onclick="eliminar('<?=$fila->idTarea?>');">
-                                    <i class="fas fa-trash-alt"></i>
-                                </div>
-                            </div>
-                            <div class="descripcion" id="<?=$fila->idTarea?>">
-                                <?=$fila->descripcionTarea?>
-                            </div>
-                        </div>
 
-                        <form action="">
-                            <div class="modificarTarea" id="modificar<?=$fila->idTarea?>">
-                                <div class="titulo">
-                                    <h1><?=$fila->tituloTarea?></h1>
+                session_start();
+                $usuario = $_SESSION['usuario'];
+
+                if(!isset($usuario)){
+                    header("location: index.html");
+                }
+
+                else{
+
+                    echo "<a href='cerrarSesion.php'>SALIR<a>";
+
+                    $conexion = new mysqli("127.0.0.1", "root", "", "proyecto");
+                    $conexion->set_charset("utf8");
+                    $sql = "select * from tareas where emailUsuario='$usuario'";
+                    $instruccion = $conexion->prepare($sql);
+                    $instruccion->execute();
+                    $tabla = $instruccion->get_result();
+                    while ($fila = $tabla->fetch_object()) {
+                        ?>
+                            <div class="tarea">
+                                <div class="nombre">
+                                    <?=$fila->tituloTarea?>
                                 </div>
-                                <input type="text" placeholder="Titulo" name="newTitulo" class="rellenarNewTarea" value="<?=$fila->tituloTarea?>">
-                                <textarea name="newDescripcion" class="rellenarNewTarea2" placeholder="Descripción"><?=$fila->descripcionTarea?></textarea>
-                                <div class="botones">
-                                    <input type="button" value="Modificar" class="botonCrear" onclick="modificarTarea(<?=$fila->idTarea?>, this.form.newTitulo.value, this.form.newDescripcion.value);">
-                                    <input type="button" value="Cancelar" class="botonCancelar" onclick="cancelarModificar('modificar<?=$fila->idTarea?>');">    
+                                <div class="opciones">
+                                    <div class="mostrar" onclick="mostrar('<?=$fila->idTarea?>');">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="estado" onclick="estado(<?=$fila->idTarea?>, <?=$fila->estadoTarea?>)">
+                                        <i class="fas fa-check-square estado<?=$fila->estadoTarea?>"></i>
+                                    </div>
+                                    <div class="editar" onclick="editar('modificar<?=$fila->idTarea?>');">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="eliminar" onclick="eliminar('<?=$fila->idTarea?>');">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="descripcion" id="<?=$fila->idTarea?>">
+                                    <?=$fila->descripcionTarea?>
                                 </div>
                             </div>
-                        </form>
-                    <?php
+
+                            <form action="">
+                                <div class="modificarTarea" id="modificar<?=$fila->idTarea?>">
+                                    <div class="titulo">
+                                        <h1><?=$fila->tituloTarea?></h1>
+                                    </div>
+                                    <input type="text" placeholder="Titulo" name="newTitulo" class="rellenarNewTarea" value="<?=$fila->tituloTarea?>">
+                                    <textarea name="newDescripcion" class="rellenarNewTarea2" placeholder="Descripción"><?=$fila->descripcionTarea?></textarea>
+                                    <div class="botones">
+                                        <input type="button" value="Modificar" class="botonCrear" onclick="modificarTarea(<?=$fila->idTarea?>, this.form.newTitulo.value, this.form.newDescripcion.value);">
+                                        <input type="button" value="Cancelar" class="botonCancelar" onclick="cancelarModificar('modificar<?=$fila->idTarea?>');">    
+                                    </div>
+                                </div>
+                            </form>
+                        <?php
+                    }
                 }        
             ?>
             <form action="resultado.php" method="post">
