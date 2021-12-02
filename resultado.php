@@ -26,7 +26,7 @@
 
                     echo "<a href='cerrarSesion.php'>SALIR<a>";
 
-                    $conexion = new mysqli("127.0.0.1", "root", "", "proyecto");
+                    $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', 'Y0/Er%vE@GlmrsU>', 'id18050069_proyecto');
                     $conexion->set_charset("utf8");
                     $sql = "select * from tareas where emailUsuario='$usuario'";
                     $instruccion = $conexion->prepare($sql);

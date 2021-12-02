@@ -24,7 +24,8 @@
         $queryResult = mysqli_query($con,$updateClave); 
 
 
-        $linkRecuperar = "localhost/Proyecto/nuevaClave.php?idUsuario=".$dataConsulta['idUsuario']."&token=".$miTokenClave;
+        $linkRecuperar = "https://projecttaskmanager.000webhostapp.com/nuevaClave.php?idUsuario=".$dataConsulta['idUsuario']."&token=".$miTokenClave;
+        ""
 
         $destinatario = $correo; 
         $asunto = "Recuperar contraseña";
