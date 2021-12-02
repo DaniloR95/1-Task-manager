@@ -11,4 +11,7 @@
         $_SESSION['usuario'] = $usuario;
         header("location: resultado.php");
     }
+    else{
+        header("location: index.html");
+    }
 ?>

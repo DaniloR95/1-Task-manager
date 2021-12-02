@@ -13,7 +13,7 @@
     
 
         <?php
-            $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', 'Y0/Er%vE@GlmrsU>', 'id18050069_proyecto');
+            $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', '<M-~/7uf\x&=pX^x', 'id18050069_proyecto');
             $conexion->set_charset("utf8");
             $sql = "select email from usuarios where email=?";
             $instruccion = $conexion->prepare($sql);
@@ -28,7 +28,7 @@
         <?php
             }
             else{
-                $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', 'Y0/Er%vE@GlmrsU>', 'id18050069_proyecto');
+                $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', '<M-~/7uf\x&=pX^x', 'id18050069_proyecto');
                 $sql = "insert into usuarios (nombreUsuario, apellidosUsuario, email, password) values (?,?,?,?)";
                 $instruccion = $conexion->prepare($sql);
                 $PasswordEncriptada = password_hash($_POST["password"], PASSWORD_DEFAULT);
