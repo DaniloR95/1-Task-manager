@@ -119,6 +119,8 @@ h1{
 }
 #olvidoPassword{
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 #olvidoPassword:hover{
     color: cornflowerblue;
