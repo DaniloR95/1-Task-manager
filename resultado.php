@@ -26,7 +26,7 @@
 
                     echo "<a href='cerrarSesion.php'>SALIR<a>";
 
-                    $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', '<M-~/7uf\x&=pX^x', 'id18050069_proyecto');
+                    $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
                     $conexion->set_charset("utf8");
                     $sql = "select * from tareas where emailUsuario='$usuario'";
                     $instruccion = $conexion->prepare($sql);
@@ -80,7 +80,7 @@
                         <h1>Nueva tarea</h1>
                     </div>
 
-                    <input type="text" name="email" class="ocultar" value="<?=$_POST["email"]?>">
+                    <input type="text" name="email" hidden="true" value="<?=$usuario?>">
                     <input type="text" placeholder="Titulo" name="titulo" class="rellenarNewTarea" required>
                     <textarea name="descripcion"  class="rellenarNewTarea2" placeholder="Descripción"></textarea>
                     <input type="number" name="estado" class="ocultar" value="0">

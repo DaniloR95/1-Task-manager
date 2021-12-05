@@ -1,13 +1,21 @@
 <?php
-    require 'conexion.php';
-    session_start();
     $usuario = $_POST['email'];
     $password = $_POST['password'];
-    $sql = "select count(*) as contar from usuarios where email = '$usuario' and password = '$password'";
-    $consulta = mysqli_query($conexion,$sql);
-    $array = mysqli_fetch_array($consulta);
 
-    if($array['contar']>0){
+    $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
+    $conexion->set_charset("utf8");
+    $sql = "select * from usuarios where email='$usuario'";
+    $instruccion = $conexion->prepare($sql);
+    $instruccion->execute();
+    $tabla = $instruccion->get_result();
+    $resultado = $tabla->fetch_object();
+    $passwordCofificada = $resultado->password;
+
+    echo $passwordCofificada;
+    echo $password;
+
+    if(password_verify($password, $passwordCofificada)){
+        session_start();
         $_SESSION['usuario'] = $usuario;
         header("location: resultado.php");
     }

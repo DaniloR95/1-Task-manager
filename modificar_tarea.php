@@ -1,5 +1,5 @@
 <?php
-    $conexion = new mysqli('localhost', 'id18050069_proyectotaskmanager', '<M-~/7uf\x&=pX^x', 'id18050069_proyecto');
+    $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
     $conexion->set_charset("utf8");
     $sql = "update tareas set tituloTarea=?, descripcionTarea=? where idTarea=?";
     $instruccion = $conexion->prepare($sql);

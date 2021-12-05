@@ -1,8 +1,8 @@
 <?php
-    $host = "localhost";
-    $usuario = "id18050069_proyectotaskmanager";
-    $clave = "<M-~/7uf\x&=pX^x";
-    $bd = "id18050069_proyecto";
+    $host = '127.0.0.1';
+    $usuario = 'root';
+    $clave = '';
+    $bd = 'proyecto';
 
     $conexion = mysqli_connect($host,$usuario,$clave,$bd)
 ?>
