@@ -9,7 +9,7 @@
 #contenedor{
     width: 100%;
     padding: 50px;
-    background-color: silver;
+    background-image: url(backgrouns/white_sand.png);
 }
 
 .tarea{

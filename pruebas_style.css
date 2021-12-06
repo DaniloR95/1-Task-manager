@@ -21,7 +21,28 @@ input:focus{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: silver;
+    background-image: url(backgrouns/white_sand.png);
+}
+
+#home{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    gap: 20px;
+}
+
+.botonHome{
+    width: 200px;
+    margin: auto;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: steelblue;
+    font-weight: bold;
+    color: white;
+    border: none;
 }
 #registro{
     width: 400px;
@@ -76,9 +97,25 @@ h1{
 
 }
 
+#botonOlvidoCancelar{
+    width: 100px;
+    margin: auto;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+#botonOlvidoCancelar:hover{
+    background-color: rgb(75, 75, 75);
+
+}
+
 #login{
     width: 400px;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     padding: 20px;
     text-align: center;
@@ -127,7 +164,7 @@ h1{
 }
 #restablecerPassword{
     width: 450px;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     padding: 20px;
     text-align: center;

@@ -9,6 +9,13 @@
 </head>
 <body>
     <div id="contenedor">
+
+        <div id="home">
+            <h1>Titulo</h1>
+            <input type="button" value="Iniciar sesión" class="botonHome" onclick="mostrarLogin();">
+            <input type="button" value="Registrarse" class="botonHome" onclick="registrarse();">
+        </div>
+
         <form action="login.php" method="post">
             <div id="login">
                 <h1>Iniciar sesión</h1>
@@ -16,7 +23,7 @@
                 <input type="password" name="password" placeholder="Contraseña" class="rellenarLogin">
                 <input type="button" value="Iniciar sesión" id="botonLogin" onclick="this.form.submit();">
                 <p id="crearCuenta">¿No tienes una cuenta? <span onclick="registrarse();" id="registro2">Registrarse</span></p>
-                <p><a href="olvidoPassword.php" id="olvidoPassword">¿Olvidaste la contraseña?</a></p>
+                <p id="olvidoPassword" onclick="olvido();">¿Olvidaste la contraseña?</p>
             </div>
         </form>
         <form action="crearUsuario.php" method="post" id="formulario">
@@ -38,6 +45,17 @@
                     <input type="button" value="Cancelar" id="botonRegistroCancelar" onclick="cancelarRegistro();">
                 </div>
 
+            </div>
+        </form>
+        <form action="recuperarClaveConLink.php" method="post" id="recuperar">
+            <div id="restablecerPassword">
+                <h1>¿Olvidaste la contraseña?</h1>
+                <p>Escribe el correo electrónico con el que te registraste y haz clic en "Restablecer contraseña".</p>
+                <input type="email" id="emailRecuperar" name="email" placeholder="Email">
+                <div>
+                    <input type="button" value="Restablecer contraseña" class="botonRestablecer" onclick="this.form.submit();">
+                    <input type="button" value="Cancelar" id="botonOlvidoCancelar" onclick="olvidoCancelar();">
+                </div>
             </div>
         </form>
     </div>

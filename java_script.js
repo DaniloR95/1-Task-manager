@@ -1,9 +1,33 @@
+
+function mostrarLogin(){
+    panelHome = document.getElementById("home");
+    login = document.getElementById("login");
+    login.style.display="grid";
+    panelHome.style.display="none";
+}
+
 function registrarse(){
     panelRegistro = document.getElementById("registro");
+    panelHome = document.getElementById("home");
     login = document.getElementById("login");
+    panelHome.style.display="none";
     login.style.display="none";
     panelRegistro.style.display="grid";
 }
+
+function olvido(){
+    panelOlvido = document.getElementById("restablecerPassword");
+    login = document.getElementById("login");
+    login.style.display="none";
+    panelOlvido.style.display="grid";
+}
+function olvidoCancelar(){
+    panelOlvido = document.getElementById("restablecerPassword");
+    login = document.getElementById("login");
+    login.style.display="grid";
+    panelOlvido.style.display="none";
+}
+
 function cancelarRegistro(){
     document.getElementById("nombre").value = "";
     document.getElementById("apellidos").value = "";
