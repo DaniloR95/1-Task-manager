@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="tareas_style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+
     <div id="contenedor">
 
         <main id="main">
@@ -23,8 +24,22 @@
                 }
 
                 else{
-
-                    echo "<a href='cerrarSesion.php'>SALIR<a>";
+                    
+                ?>
+                    <div id="header">
+                <?php
+                        $conexion1 = new mysqli('127.0.0.1', 'root', '', 'proyecto');
+                        $conexion1->set_charset("utf8");
+                        $sql1 = "select * from usuarios where email='$usuario'";
+                        $instruccion1 = $conexion1->prepare($sql1);
+                        $instruccion1->execute();
+                        $tabla1 = $instruccion1->get_result();
+                        $datos = $tabla1->fetch_object();
+                        echo "<h2>" . $datos->nombreUsuario . " " . $datos->apellidosUsuario ."</h2>";
+                        echo "<a id='botonSalir' href='cerrarSesion.php'>SALIR <i class='fas fa-power-off'></i><a>";
+                ?>
+                    </div>
+                <?php
 
                     $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
                     $conexion->set_charset("utf8");
@@ -91,103 +106,12 @@
                 </div>
             </form>
             <div id="sumarTarea" onclick="nuevaTarea();">
-                <h1>+</h1>
+                <h2><i class="fas fa-plus"></i> NUEVA TAREA</h2>
             </div>
         </main>
     </div>
 
-    <script>
-        function mostrar(descripcion){
-            descripcionMostrar = document.getElementById(descripcion);
-            descripcionMostrar.style.display="block";
-        }
-
-        function eliminar(idTarea){
-            var parametros = 
-            {
-                "idTarea" : idTarea
-            };
-            $.ajax({
-                data: parametros,
-                url: 'eliminar_tarea.php',
-                type: 'POST',
-                success: function(tarea)
-                {
-                    location.reload();
-                }
-            });
-        }
-        function estado(id, estado){
-            var parametros = 
-            {
-                "id" : id,
-                "estado" : estado
-            };
-            $.ajax({
-                data: parametros,
-                url: 'estado_tarea.php',
-                type: 'POST',
-                success: function(tarea)
-                {
-                    location.reload();
-                }
-            });
-        }
-        function nuevaTarea(){
-            nuevaTarea = document.getElementById("nuevaTarea");
-            nuevaTarea.style.display="grid";
-
-        }
-        function cancelarTarea(){
-            nuevaTarea = document.getElementById("nuevaTarea");
-            nuevaTarea.style.display="none";
-        }
-        function crearTarea(email, titulo, descripcion, estado){
-            var parametros = 
-            {
-                "email" : email,
-                "titulo" : titulo,
-                "descripcion" : descripcion,
-                "estado" : estado
-            };
-            $.ajax({
-                data: parametros,
-                url: 'crear_tarea.php',
-                type: 'POST',
-                success: function(tarea)
-                {
-                    location.reload();
-                }
-            });
-
-        }
-        function editar(id){
-            mostrar = document.getElementById(id);
-            mostrar.style.display="grid"
-        }
-        function modificarTarea(id, titulo, descripcion){
-            var parametros = 
-            {
-                "id" : id,
-                "titulo" : titulo,
-                "descripcion" : descripcion
-            };
-            $.ajax({
-                data: parametros,
-                url: 'modificar_tarea.php',
-                type: 'POST',
-                success: function(tarea)
-                {
-                    location.reload();
-                }
-            });
-        }
-        function cancelarModificar(id){
-            mostrar = document.getElementById(id);
-            mostrar.style.display="none"
-            location.reload();
-        }
-    </script>
+    <script src="java_script.js"></script>
 
 </body>
 </html>

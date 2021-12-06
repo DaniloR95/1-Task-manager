@@ -160,3 +160,95 @@ function validarRegistro(){
         document.getElementById("formulario").submit();
     }
 }
+
+
+function mostrar(descripcion){
+    descripcionMostrar = document.getElementById(descripcion);
+    descripcionMostrar.style.display="block";
+}
+
+function eliminar(idTarea){
+    var parametros = 
+    {
+        "idTarea" : idTarea
+    };
+    $.ajax({
+        data: parametros,
+        url: 'eliminar_tarea.php',
+        type: 'POST',
+        success: function(tarea)
+        {
+            location.reload();
+        }
+    });
+}
+function estado(id, estado){
+    var parametros = 
+    {
+        "id" : id,
+        "estado" : estado
+    };
+    $.ajax({
+        data: parametros,
+        url: 'estado_tarea.php',
+        type: 'POST',
+        success: function(tarea)
+        {
+            location.reload();
+        }
+    });
+}
+function nuevaTarea(){
+    nuevaTarea = document.getElementById("nuevaTarea");
+    nuevaTarea.style.display="grid";
+
+}
+function cancelarTarea(){
+    nuevaTarea = document.getElementById("nuevaTarea");
+    nuevaTarea.style.display="none";
+}
+function crearTarea(email, titulo, descripcion, estado){
+    var parametros = 
+    {
+        "email" : email,
+        "titulo" : titulo,
+        "descripcion" : descripcion,
+        "estado" : estado
+    };
+    $.ajax({
+        data: parametros,
+        url: 'crear_tarea.php',
+        type: 'POST',
+        success: function(tarea)
+        {
+            location.reload();
+        }
+    });
+
+}
+function editar(id){
+    mostrar = document.getElementById(id);
+    mostrar.style.display="grid"
+}
+function modificarTarea(id, titulo, descripcion){
+    var parametros = 
+    {
+        "id" : id,
+        "titulo" : titulo,
+        "descripcion" : descripcion
+    };
+    $.ajax({
+        data: parametros,
+        url: 'modificar_tarea.php',
+        type: 'POST',
+        success: function(tarea)
+        {
+            location.reload();
+        }
+    });
+}
+function cancelarModificar(id){
+    mostrar = document.getElementById(id);
+    mostrar.style.display="none"
+    location.reload();
+}
