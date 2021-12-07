@@ -424,7 +424,64 @@ a{
 #botonSalir:hover{
     color: rgb(160, 39, 39);
 }
-#botonBackground{
+#botonBackground0{
     border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: darkblue;
+    color: white;
+    padding: 4px;
+    position: relative;
+}
+#botonBackground0 span{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+#botonBackground0 #bola{
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    border: 2px solid grey;
+    background-color: gainsboro;
+    position: absolute;
+    right: unset;
+    left: -1px;
+}
+#botonBackground1{
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: orange;
+    color: black;
+    padding: 4px;
+    position: relative;
+}
+#botonBackground1 span{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+#botonBackground1 #bola{
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: gainsboro;
+    border: 2px solid grey;
+    position: absolute;
+    right: -1px;
+    left: unset;
+}
+#header{
+    margin-bottom: 20px;
 }

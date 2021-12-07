@@ -164,7 +164,17 @@ function validarRegistro(){
 
 function mostrar(descripcion){
     descripcionMostrar = document.getElementById(descripcion);
-    descripcionMostrar.style.display="block";
+    flechaMostrar = document.getElementById("flechaMostrar" + descripcion);
+    if(descripcionMostrar.style.display=="none"){
+        descripcionMostrar.style.display="block";
+        flechaMostrar.style.transform="rotate(180deg)";
+        return;
+    }
+    if(descripcionMostrar.style.display="block"){
+        descripcionMostrar.style.display="none";
+        flechaMostrar.style.transform="rotate(0deg)";
+        return;
+    }
 }
 
 function eliminar(idTarea){

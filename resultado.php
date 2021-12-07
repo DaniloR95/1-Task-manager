@@ -44,8 +44,8 @@
                             $tabla1 = $instruccion1->get_result();
                             $datos = $tabla1->fetch_object();
                             echo "<h2>" . $datos->nombreUsuario . " " . $datos->apellidosUsuario ."</h2>";
-                            echo "<a id='botonSalir' href='cerrarSesion.php'>SALIR <i class='fas fa-power-off'></i><a>";
-                            echo "<input type='button' value='MODO' id='botonBackground' onclick = 'background(" . $datos->idUsuario . ", " . $datos->background . ");'>";
+                            echo "<a id='botonSalir' href='cerrarSesion.php'>SALIR <i class='fas fa-power-off'></i></a>";
+                            echo "<button id='botonBackground" . $datos->background . "' onclick = 'background(" . $datos->idUsuario . ", " . $datos->background . ");'><span><i class='fas fa-sun'></i></span><span><i class='fas fa-moon'></i></span><div id='bola'></div></button>";
                     ?>
                         </div>
                     <?php
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="opciones">
                                         <div class="mostrar" onclick="mostrar('<?=$fila->idTarea?>');">
-                                            <i class="fas fa-chevron-down"></i>
+                                            <i class="fas fa-chevron-down" id='flechaMostrar<?=$fila->idTarea?>'></i>
                                         </div>
                                         <div class="estado" onclick="estado(<?=$fila->idTarea?>, <?=$fila->estadoTarea?>)">
                                             <i class="fas fa-check-square estado<?=$fila->estadoTarea?>"></i>
