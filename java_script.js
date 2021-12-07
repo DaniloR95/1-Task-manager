@@ -198,6 +198,22 @@ function estado(id, estado){
         }
     });
 }
+function background(idUsuario, background){
+    var parametros = 
+    {
+        "idUsuario" : idUsuario,
+        "background" : background
+    };
+    $.ajax({
+        data: parametros,
+        url: 'background.php',
+        type: 'POST',
+        success: function(tarea)
+        {
+            location.reload();
+        }
+    });
+}
 function nuevaTarea(){
     nuevaTarea = document.getElementById("nuevaTarea");
     nuevaTarea.style.display="grid";

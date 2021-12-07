@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="contenedor">
+    <div id="contenedor0">
         <form action="crearNuevaClave.php" method="post">
             <div id="restablecerPassword3">
                 <h1>Restablecer Contraseña</h1>

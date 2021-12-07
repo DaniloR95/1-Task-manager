@@ -14,11 +14,17 @@ input:focus{
     border: 2px solid grey;
     outline: none;
 }
-#contenedor{
+#contenedor0{
     width: 100%;
     min-height: 100vh;
     padding: 50px;
     background-image: url(backgrouns/white_sand.png);
+}
+#contenedor1{
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px;
+    background-image: url(backgrouns/gray_sand.png);
 }
 
 #home{
@@ -417,4 +423,8 @@ a{
 }
 #botonSalir:hover{
     color: rgb(160, 39, 39);
+}
+#botonBackground{
+    border: none;
+    cursor: pointer;
 }

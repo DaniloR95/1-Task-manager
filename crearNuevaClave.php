@@ -18,7 +18,7 @@
         $instruccion->bind_param('sis', $_REQUEST['password'], $_REQUEST['idUsuario'], $_REQUEST['token']);
         $instruccion->execute();
     ?>
-    <div id="contenedor">
+    <div id="contenedor0">
         <div id="restablecerPassword4">
             <p>Su contraseña ha sido modificada con exito</p>
             <input type="button" value="Iniciar sesión" class="botonRestablecer">
