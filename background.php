@@ -1,5 +1,5 @@
 <?php
-    $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
+    $conexion = new mysqli('localhost', 'u106913443_thotsbrain', 'S@0v6Rp?', 'u106913443_thotsbrain');
     $conexion->set_charset("utf8");
     $sql = "update usuarios set background=? where idUsuario=?";
     $instruccion = $conexion->prepare($sql);

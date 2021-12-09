@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Thot's brain | Registration</title>
+    <link rel="shortcut icon" href="backgrouns/Brain_icon_from_Noun_Project.png">
 </head>
 <body>
-    <div id="contenedor0">
+    <div id="contenedor">
 
     
 
         <?php
-            $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
+            $conexion = new mysqli('localhost', 'u106913443_thotsbrain', 'S@0v6Rp?', 'u106913443_thotsbrain');
             $conexion->set_charset("utf8");
             $sql = "select email from usuarios where email=?";
             $instruccion = $conexion->prepare($sql);
@@ -28,7 +29,7 @@
         <?php
             }
             else{
-                $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
+                $conexion = new mysqli('localhost', 'u106913443_thotsbrain', 'S@0v6Rp?', 'u106913443_thotsbrain');
                 $sql = "insert into usuarios (nombreUsuario, apellidosUsuario, email, password) values (?,?,?,?)";
                 $instruccion = $conexion->prepare($sql);
                 $PasswordEncriptada = password_hash($_POST["password"], PASSWORD_DEFAULT);

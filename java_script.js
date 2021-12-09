@@ -224,14 +224,15 @@ function background(idUsuario, background){
         }
     });
 }
-function nuevaTarea(){
-    nuevaTarea = document.getElementById("nuevaTarea");
-    nuevaTarea.style.display="grid";
+function nuevaTarea(ver){
+    mostrarNewTarea = document.getElementById("nuevaTarea");
+    if(ver == "1"){
+        mostrarNewTarea.style.display="grid";
+    }
+    if(ver == "0"){
+        mostrarNewTarea.style.display="none";
+    }
 
-}
-function cancelarTarea(){
-    nuevaTarea = document.getElementById("nuevaTarea");
-    nuevaTarea.style.display="none";
 }
 function crearTarea(email, titulo, descripcion, estado){
     var parametros = 
@@ -253,8 +254,10 @@ function crearTarea(email, titulo, descripcion, estado){
 
 }
 function editar(id){
-    mostrar = document.getElementById(id);
-    mostrar.style.display="grid"
+    mostrarEditar = document.getElementById(id);
+    mostrarNewTarea = document.getElementById("nuevaTarea");
+    mostrarEditar.style.display="grid"
+    mostrarNewTarea.style.display="none";
 }
 function modificarTarea(id, titulo, descripcion){
     var parametros = 

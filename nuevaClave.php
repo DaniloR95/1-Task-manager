@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Thot's brain | Recover password</title>
+    <link rel="shortcut icon" href="backgrouns/Brain_icon_from_Noun_Project.png">
 </head>
 <body>
-    <div id="contenedor0">
+    <div id="contenedor">
         <form action="crearNuevaClave.php" method="post" id="formularioRestablecerPassword">
             <div id="restablecerPassword3">
                 <h1>Restablecer Contraseña</h1>

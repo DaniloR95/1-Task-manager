@@ -14,19 +14,15 @@ input:focus{
     border: 2px solid grey;
     outline: none;
 }
-#contenedor0{
-    width: 100%;
-    min-height: 100vh;
-    padding: 50px;
-    background-image: url(backgrouns/white_sand.png);
-}
-#contenedor1{
+#contenedor{
     width: 100%;
     min-height: 100vh;
     padding: 50px;
     background-image: url(backgrouns/gray_sand.png);
 }
-
+#nombreUsuario{
+    color: white;
+}
 #home{
     width: 400px;
     display: grid;

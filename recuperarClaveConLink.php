@@ -24,14 +24,14 @@
         $queryResult = mysqli_query($con,$updateClave); 
 
 
-        $linkRecuperar = "https://projecttaskmanager.000webhostapp.com/nuevaClave.php?idUsuario=".$dataConsulta['idUsuario']."&token=".$miTokenClave;
+        $linkRecuperar = "https://thotsbrain.danilorivero.com/nuevaClave.php?idUsuario=".$dataConsulta['idUsuario']."&token=".$miTokenClave;
 
 
         $destinatario = $correo; 
         $asunto = "Recuperar contraseña";
         $cuerpo = $linkRecuperar;
-        $header = "From: projecttaskmanager@gmail.com" . "\r\n";
-        $header.= "Reply-To: projecttaskmanager@gmail.com" . "\r\n";
+        $header = "From: thotsbrain@gmail.com" . "\r\n";
+        $header.= "Reply-To: thotsbrain@gmail.com" . "\r\n";
         $header.= "X-Mailer: PHP/". phpversion();
 
         if(mail($destinatario,$asunto,$cuerpo,$header)){

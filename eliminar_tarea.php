@@ -1,5 +1,5 @@
 <?php
-    $conexion = new mysqli('127.0.0.1', 'root', '', 'proyecto');
+    $conexion = new mysqli('localhost', 'u106913443_thotsbrain', 'S@0v6Rp?', 'u106913443_thotsbrain');
     $sql = "delete from tareas where idTarea=?";
     $instruccion = $conexion->prepare($sql);
     $instruccion->bind_param('i', $_POST["idTarea"]);
