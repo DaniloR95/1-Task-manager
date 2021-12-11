@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style0.css">
+    <title>Thot's brain | Login</title>
+    <link rel="shortcut icon" href="backgrouns/Brain_icon_from_Noun_Project.png">
+</head>
+<body>
+    <div id="contenedor">
+    
 <?php
     include('config.php');
 
@@ -8,7 +21,12 @@
     $dataConsulta       = mysqli_fetch_array($queryconsulta);
 
     if($cantidadConsulta ==0){ 
-        header("Location:index.html");
+        ?>
+        <div id="restablecerPassword2">
+            <p>No existe ninguna cuenta asociada a <?=$correo?></p>
+            <a href="index.html"><input type="button" value="Volver al inicio" class="botonRestablecer"></a>
+        </div>
+        <?php
         exit();
     }
     else{
@@ -18,13 +36,11 @@
         }
         $miTokenClave = generandoTokenClave();
 
-
-        //Agregando Token en la tabla BD
         $updateClave = ("update usuarios set token='$miTokenClave' WHERE email='".$correo."' ");
         $queryResult = mysqli_query($con,$updateClave); 
 
 
-        $linkRecuperar = "https://thotsbrain.danilorivero.com/nuevaClave.php?idUsuario=".$dataConsulta['idUsuario']."&token=".$miTokenClave;
+        $linkRecuperar = "https://danilorivero.com/nuevaClave.php?idUsuario=".$dataConsulta['idUsuario']."&token=".$miTokenClave;
 
 
         $destinatario = $correo; 
@@ -36,10 +52,19 @@
 
         if(mail($destinatario,$asunto,$cuerpo,$header)){
 
-            header("Location:index.html");
+            ?>
+                <div id="restablecerPassword2">
+                    <p>Se ha enviado un correo electronico a <?=$correo?> para que recupere su contraseña</p>
+                    <a href="index.html"><input type="button" value="Volver al inicio" class="botonRestablecer"></a>
+                </div>
+            <?php
             exit();
         }
+
     }
 
 
 ?>
+    </div>
+</body>
+</html>

@@ -23,7 +23,7 @@
                 <input type="email" name="email" placeholder="Email" class="rellenarLogin">
                 <input type="password" name="password" placeholder="Contraseña" class="rellenarLogin">
                 <input type="button" value="Iniciar sesión" id="botonLogin" onclick="this.form.submit();">
-                <p id="crearCuenta">¿No tienes una cuenta? <span onclick="registrarse();" id="registro2">Registrarse</span></p>
+                <p>¿No tienes una cuenta? <span onclick="registrarse();" id="registro2">Registrarse</span></p>
                 <p id="olvidoPassword" onclick="olvido();">¿Olvidaste la contraseña?</p>
             </div>
         </form>
@@ -52,9 +52,10 @@
             <div id="restablecerPassword">
                 <h1>¿Olvidaste la contraseña?</h1>
                 <p>Escribe el correo electrónico con el que te registraste y haz clic en "Restablecer contraseña".</p>
-                <input type="email" id="emailRecuperar" name="email" placeholder="Email">
+                <input type="email" id="emailRecuperar" name="email" placeholder="Email" onkeyup="comprobarEmailRecuperar(this.value);">
+                <span id="spanEmailRecuperar" class="spanError">* El email introducido no es valido</span>
                 <div>
-                    <input type="button" value="Restablecer contraseña" class="botonRestablecer" onclick="this.form.submit();">
+                    <input type="button" value="Restablecer contraseña" class="botonRestablecer" onclick="comprobarRecuperar();">
                     <input type="button" value="Cancelar" id="botonOlvidoCancelar" onclick="olvidoCancelar();">
                 </div>
             </div>

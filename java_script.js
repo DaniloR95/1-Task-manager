@@ -108,6 +108,35 @@ function comprobarEmail(emailIntroducido){
 
     }
 }
+function comprobarEmailRecuperar(emailIntroducido){
+    var email = document.getElementById('emailRecuperar');
+    mensajeError = document.getElementById("spanEmailRecuperar");
+    var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if(emailIntroducido.length<1){
+        email.style.border="1px solid grey";
+        mensajeError.style.display="none";
+    }
+    else if (!filter.test(email.value)) {
+        email.style.border="2px solid red";
+        mensajeError.style.display="block";
+    }
+    else{
+        email.style.border="2px solid green";
+        mensajeError.style.display="none";
+
+    }
+}
+function comprobarRecuperar(){
+    var emailRecuperar = document.getElementById('emailRecuperar');
+    var filterEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!filterEmail.test(emailRecuperar.value)) {
+        return;
+    }
+    else{
+        document.getElementById("recuperar").submit();
+    }
+}
 function comprobarPassword(password){
     inputPassword = document.getElementById("password");
     mensajeError = document.getElementById("spanPassword");
@@ -231,6 +260,8 @@ function nuevaTarea(ver){
     }
     if(ver == "0"){
         mostrarNewTarea.style.display="none";
+        document.getElementById("tituloNewTarea").value = "";
+        document.getElementById("descripcionNewTarea").value = "";
     }
 
 }

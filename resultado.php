@@ -42,10 +42,12 @@
                         $instruccion1->execute();
                         $tabla1 = $instruccion1->get_result();
                         $datos = $tabla1->fetch_object();
-                        echo "<h2 id='nombreUsuario'>" . $datos->nombreUsuario . " " . $datos->apellidosUsuario ."</h2>";
-                        echo "<a id='botonSalir' href='cerrarSesion.php'>SALIR <i class='fas fa-power-off'></i></a>";
-                        echo "<button id='botonBackground" . $datos->background . "' onclick = 'background(" . $datos->idUsuario . ", " . $datos->background . ");'><span><i class='fas fa-sun'></i></span><span><i class='fas fa-moon'></i></span><div id='bola'></div></button>";
                 ?>
+                        <div id='opcionesHeader'>
+                            <button class='modo' id='botonBackground<?=$datos->background?>' onclick = 'background(<?=$datos->idUsuario?>, <?=$datos->background?>);'><span><i class='fas fa-sun'></i></span><span><i class='fas fa-moon'></i></span><div id='bola'></div></button>
+                            <h2 id='nombreUsuario'><?=$datos->nombreUsuario?> <?=$datos->apellidosUsuario?></h2>
+                            <a id='botonSalir' href='cerrarSesion.php'><span>SALIR</span><i class='fas fa-power-off'></i></a>
+                        </div>
                     </div>
                 <?php
 
@@ -57,25 +59,25 @@
                     $tabla = $instruccion->get_result();
                     while ($fila = $tabla->fetch_object()) {
                         ?>
-                            <div class="tarea">
+                            <div class="tarea hecha<?=$fila->estadoTarea?>">
                                 <div class="nombre">
                                     <?=$fila->tituloTarea?>
                                 </div>
                                 <div class="opciones">
-                                    <div class="mostrar" onclick="mostrar('<?=$fila->idTarea?>');">
+                                    <div class="mostrar" onclick="mostrar('<?=$fila->idTarea?>');" title="Descripción">
                                         <i class="fas fa-chevron-down" id='flechaMostrar<?=$fila->idTarea?>'></i>
                                     </div>
-                                    <div class="estado" onclick="estado(<?=$fila->idTarea?>, <?=$fila->estadoTarea?>)">
+                                    <div class="estado" onclick="estado(<?=$fila->idTarea?>, <?=$fila->estadoTarea?>)" title="Hecha / Sin hacer">
                                         <i class="fas fa-check-square estado<?=$fila->estadoTarea?>"></i>
                                     </div>
-                                    <div class="editar" onclick="editar('modificar<?=$fila->idTarea?>');">
+                                    <div class="editar" onclick="editar('modificar<?=$fila->idTarea?>');" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </div>
-                                    <div class="eliminar" onclick="eliminar('<?=$fila->idTarea?>');">
+                                    <div class="eliminar" onclick="eliminar('<?=$fila->idTarea?>');" title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </div>
                                 </div>
-                                <div class="descripcion" id="<?=$fila->idTarea?>">
+                                <div class="descripcion" id="<?=$fila->idTarea?>" style=" display: none; ">
                                     <?=$fila->descripcionTarea?>
                                 </div>
                             </div>
@@ -104,8 +106,8 @@
                     </div>
 
                     <input type="text" name="email" hidden="true" value="<?=$usuario?>">
-                    <input type="text" placeholder="Titulo" name="titulo" class="rellenarNewTarea" required>
-                    <textarea name="descripcion"  class="rellenarNewTarea2" placeholder="Descripción"></textarea>
+                    <input type="text" placeholder="Titulo" name="titulo" class="rellenarNewTarea" id="tituloNewTarea" required>
+                    <textarea name="descripcion"  class="rellenarNewTarea2" placeholder="Descripción" id="descripcionNewTarea"></textarea>
                     <input type="number" name="estado" class="ocultar" value="0">
                     <div class="botones">
                         <input type="button" value="Crear" class="botonCrear" onclick="crearTarea(this.form.email.value, this.form.titulo.value, this.form.descripcion.value, this.form.estado.value);">

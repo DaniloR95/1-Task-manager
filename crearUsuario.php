@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style0.css">
     <title>Thot's brain | Registration</title>
     <link rel="shortcut icon" href="backgrouns/Brain_icon_from_Noun_Project.png">
 </head>
@@ -30,10 +30,11 @@
             }
             else{
                 $conexion = new mysqli('localhost', 'u106913443_thotsbrain', 'S@0v6Rp?', 'u106913443_thotsbrain');
-                $sql = "insert into usuarios (nombreUsuario, apellidosUsuario, email, password) values (?,?,?,?)";
+                $sql = "insert into usuarios (nombreUsuario, apellidosUsuario, email, password, background) values (?,?,?,?,?)";
                 $instruccion = $conexion->prepare($sql);
                 $PasswordEncriptada = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                $instruccion->bind_param('ssss', $_POST["nombre"], $_POST["apellidos"], $_POST["email"], $PasswordEncriptada);
+                $background = 0;
+                $instruccion->bind_param('ssssi', $_POST["nombre"], $_POST["apellidos"], $_POST["email"], $PasswordEncriptada, $background);
                 $instruccion->execute();
         ?>
                 <div id="usuarioCreado">
