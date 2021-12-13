@@ -30,7 +30,7 @@ textarea:focus{
     min-height: 100vh;
     padding: 50px;
     padding-top: 100px;
-    background-image: url(backgrouns/gray_sand.png);
+    background-image: url(imagenes/backgrouns_main/gray_sand.png);
 }
 #nombreUsuario{
     color: white;
@@ -215,7 +215,7 @@ a{
 /* -------- RESULTADO.PHP -------- */
 
 #header{
-    background: url(backgrouns/what-the-hex-dark.png);
+    background: url(imagenes/background_header/what-the-hex-dark.png);
     position: fixed;
     top: 0px;
     left: 0px;

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style0.css">
     <title>Thot's brain | Recover password</title>
-    <link rel="shortcut icon" href="backgrouns/Brain_icon_from_Noun_Project.png">
+    <link rel="shortcut icon" href="imagenes/icono/Brain_icon_from_Noun_Project.png">
 </head>
+<!-- Aqui es a donde se envia al usuario al entrar en el link de recuperacion -->
 <body>
     <div id="contenedor">
+<!-- En este form, el usuario introducira su nueva contraseña. Tambien contiene datos ocultos para el usuario, necesarios para cambiar correctamente su contraseña -->
         <form action="crearNuevaClave.php" method="post" id="formularioRestablecerPassword">
             <div id="restablecerPassword3">
                 <h1>Restablecer Contraseña</h1>
@@ -24,6 +26,7 @@
         </form>
     </div>
     <script>
+        /* Esta funcion se ejecuta cada vez que el usuario suelta una tecla mientra sescribe en el input asociado. le informa al usuario si la contraseña cumple los requisitos establecidos o no*/
         function comprobarPassword(password){
             inputPassword = document.getElementById("passwordRecuperar");
             mensajeError = document.getElementById("spanPasswordRecuperar");
@@ -41,6 +44,7 @@
                 mensajeError.style.display="none";
             }
         }
+        /* Esta funcion se ejecuta de la misma manera que la anterior, y comprueba que lo escrito en su input, sea igual a lo escrito en el primero */
         function comprobarPassword2(password2){
             mensajeError = document.getElementById("spanPassword2Recuperar");
             inputPassword = document.getElementById("passwordRecuperar").value;
@@ -56,7 +60,7 @@
 
             }
         }
-
+        /* Al ejecutarse esta funcion, compueba tanto que la primera vez que escribe la contraseña, esta cumpla con los requisitos exigidos, y que la segunda contraseña sea igual a la primera. Si esto se cumple, los datos se envian a 'crearNuevaClave.php' para que se actualicen los datos, pero si no se cumplen, no hace nada */
         function validarRegistro(){
             var password = document.getElementById("passwordRecuperar");
             var password2 = document.getElementById("password2Recuperar");

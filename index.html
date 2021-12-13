@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style0.css">
     <title>Thot's brain | Login</title>
-    <link rel="shortcut icon" href="backgrouns/Brain_icon_from_Noun_Project.png">
+<!-- Imagen presente en el head de la pagina -->
+    <link rel="shortcut icon" href="imagenes/icono/Brain_icon_from_Noun_Project.png">
 </head>
 <body>
     <div id="contenedor">
@@ -16,7 +17,7 @@
             <input type="button" value="Iniciar sesión" class="botonHome" onclick="mostrarLogin();">
             <input type="button" value="Registrarse" class="botonHome" onclick="registrarse();">
         </div>
-
+<!-- Formulario de login -->
         <form action="login.php" method="post">
             <div id="login">
                 <h1>Iniciar sesión</h1>
@@ -27,6 +28,7 @@
                 <p id="olvidoPassword" onclick="olvido();">¿Olvidaste la contraseña?</p>
             </div>
         </form>
+<!-- Formulario de registro -->
         <form action="crearUsuario.php" method="post" id="formulario">
             <div id="registro">
                 <h1>Registro</h1>
@@ -48,6 +50,7 @@
 
             </div>
         </form>
+<!-- Formulario de recuperacion de la contraseña -->
         <form action="recuperarClaveConLink.php" method="post" id="recuperar">
             <div id="restablecerPassword">
                 <h1>¿Olvidaste la contraseña?</h1>
