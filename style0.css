@@ -568,6 +568,10 @@ a{
 }
 
 @media screen and (max-width: 670px){
+    #contenedor{
+        padding: 10px;
+        padding-top: 100px;
+    }
     #restablecerPassword2{
         width: 90%;
     }
@@ -580,11 +584,6 @@ a{
     .tarea{
         width: 90%;
         margin-bottom: 15px;
-
-    }
-    #contenedor{
-        padding: 10px;
-        padding-top: 100px;
     }
     .modificarTarea{
         width: 90%;
@@ -597,7 +596,6 @@ a{
     .titulo{
         text-align: center;
     }
-
     #home{
         width: 90%;
         padding: 5px;
@@ -612,5 +610,16 @@ a{
     #restablecerPassword{
         width: 90%;
     }
-
+    #restablecerPassword3{
+        width: 90%;
+        padding: 5px;
+    }
+    #usuarioCreado{
+        width: 90%;
+        padding: 5px;
+    }
+    #usuarioNoCreado{
+        width: 90%;
+        padding: 5px;
+    }
 }
