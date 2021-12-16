@@ -1,3 +1,4 @@
+/* Este archivo es el que se utiliza de manera fija para dar formato a todos los demas archivos, menos en el archivo 'resultado.php', donde es el predefinido pero puede ser cambiado al activarse el modo noche */
 /* -------- GENERAL -------- */
 *{
     margin: 0px;
@@ -64,6 +65,9 @@ a{
     font-weight: bold;
     color: white;
     border: none;
+}
+.botonHome:hover{
+    background-color: rgb(26, 112, 182);
 }
 #login{
     width: 400px;
@@ -566,8 +570,9 @@ a{
 #restablecerPassword5 p{
     margin-bottom: 20px;
 }
+/* Los siguientes formatos se activan cuando el viewport tiene un width de 670px o menos */
 
-@media screen and (max-width: 670px){
+@media only screen and (max-width: 670px){
     #contenedor{
         padding: 10px;
         padding-top: 100px;
